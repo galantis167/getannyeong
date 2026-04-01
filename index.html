@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annyeong Chingu — Learn Korean through K-drama and K-pop</title>
+<meta name="description" content="The AI Korean conversation app built for K-culture fans. Practice speaking Korean through K-drama, K-pop and real scenarios — with an AI friend who never judges your mistakes.">
+<meta property="og:title" content="Annyeong Chingu — Your AI Korean friend">
+<meta property="og:description" content="Stop studying Korean. Start speaking it. AI conversations through K-drama, K-pop and real Korean culture.">
+<meta property="og:type" content="website">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#faf7f4;color:#2c2c2a;line-height:1.6;}
+
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 2rem;max-width:780px;margin:0 auto;}
+  .nav-logo{font-size:17px;font-weight:600;color:#2c2c2a;text-decoration:none;}
+  .nav-logo span{color:#d4537e;}
+  .nav-cta{background:#d4537e;color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;border:none;cursor:pointer;}
+  .nav-cta:hover{background:#c2426d;}
+
+  .hero{text-align:center;padding:4rem 2rem 3rem;max-width:620px;margin:0 auto;}
+  .hero-badge{display:inline-block;background:#fbeaf0;color:#72243e;font-size:12px;font-weight:500;padding:4px 14px;border-radius:20px;margin-bottom:1.25rem;}
+  .hero h1{font-size:clamp(32px,5vw,48px);font-weight:700;color:#2c2c2a;line-height:1.15;margin-bottom:1rem;letter-spacing:-.02em;}
+  .hero h1 em{font-style:normal;color:#d4537e;}
+  .hero p{font-size:17px;color:#5f5e5a;line-height:1.65;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;}
+
+  .form-wrap{background:#fff;border:1px solid #ede9e3;border-radius:16px;padding:1.75rem;max-width:440px;margin:0 auto 1rem;}
+  .form-label{font-size:14px;font-weight:500;color:#2c2c2a;margin-bottom:.75rem;display:block;}
+
+  /* =====================================================
+     PASTE YOUR BEEHIIV EMBED CODE HERE
+     Replace everything between the beehiiv-start and
+     beehiiv-end comments with your Beehiiv form snippet.
+     It will look something like:
+     <iframe src="https://embeds.beehiiv.com/..." ...></iframe>
+     ===================================================== */
+
+<script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/e1688e7d-f504-48c8-9b0b-115113671ecb" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 314px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+
+  <p style="font-size:12px;color:#888780;text-align:center;margin-top:.75rem;">No spam. Just one email when we launch. Unsubscribe anytime.</p>
+
+  .hero-note{font-size:12px;color:#888780;margin-top:.5rem;}
+
+  .convo{background:#fff;border:1px solid #ede9e3;border-radius:16px;padding:1.25rem;max-width:380px;margin:2.5rem auto 0;}
+  .convo-label{font-size:11px;font-weight:600;color:#888780;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.875rem;}
+  .msg{display:flex;gap:8px;margin-bottom:10px;align-items:flex-end;}
+  .msg.user{flex-direction:row-reverse;}
+  .avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+  .av-ai{background:#fbeaf0;color:#72243e;}
+  .av-you{background:#e1f5ee;color:#085041;}
+  .bubble{max-width:78%;padding:9px 13px;border-radius:14px;font-size:13px;line-height:1.5;}
+  .bubble-ai{background:#f5f3ef;color:#2c2c2a;}
+  .bubble-you{background:#d4537e;color:#fff;}
+  .ko{font-weight:500;display:block;}
+  .en{font-size:11px;color:#888780;display:block;margin-top:2px;}
+  .correction{display:inline-block;margin-top:5px;padding:3px 8px;border-radius:6px;font-size:11px;background:#e1f5ee;color:#085041;}
+
+  hr{border:none;border-top:1px solid #ede9e3;margin:3rem auto;max-width:780px;}
+
+  .features{padding:0 2rem 3rem;max-width:780px;margin:0 auto;}
+  .feat-head{text-align:center;margin-bottom:2rem;}
+  .feat-head h2{font-size:26px;font-weight:700;color:#2c2c2a;margin-bottom:.5rem;}
+  .feat-head p{font-size:15px;color:#5f5e5a;}
+  .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+  .feat{background:#fff;border:1px solid #ede9e3;border-radius:14px;padding:1.1rem 1.25rem;}
+  .feat-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:.75rem;}
+  .feat h3{font-size:14px;font-weight:600;color:#2c2c2a;margin-bottom:4px;}
+  .feat p{font-size:13px;color:#5f5e5a;line-height:1.5;}
+
+  .vs{padding:0 2rem 3rem;max-width:780px;margin:0 auto;}
+  .vs h2{font-size:26px;font-weight:700;text-align:center;margin-bottom:.5rem;}
+  .vs .sub{font-size:15px;color:#5f5e5a;text-align:center;margin-bottom:1.5rem;}
+  .vs-table{width:100%;border-collapse:collapse;font-size:13px;}
+  .vs-table th{padding:9px 12px;font-size:11px;font-weight:600;color:#888780;border-bottom:1px solid #ede9e3;text-align:left;}
+  .vs-table th.c{text-align:center;}
+  .vs-table td{padding:9px 12px;border-bottom:1px solid #ede9e3;color:#5f5e5a;}
+  .vs-table td.c{text-align:center;}
+  .vs-table tr:last-child td{border-bottom:none;}
+  .vs-table tr.you td{background:#fbeaf0;color:#72243e;font-weight:500;}
+  .tick{display:inline-block;width:18px;height:18px;border-radius:50%;line-height:18px;text-align:center;font-size:10px;font-weight:700;}
+  .t-yes{background:#e1f5ee;color:#085041;}
+  .t-no{background:#f5f3ef;color:#b4b2a9;}
+  .t-you{background:#fbeaf0;color:#72243e;}
+
+  .social{padding:0 2rem 3rem;max-width:780px;margin:0 auto;}
+  .social h2{font-size:26px;font-weight:700;text-align:center;margin-bottom:.5rem;}
+  .social .sub{font-size:15px;color:#5f5e5a;text-align:center;margin-bottom:1.5rem;}
+  .quote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+  .quote{background:#fff;border:1px solid #ede9e3;border-radius:14px;padding:1.1rem 1.25rem;}
+  .quote p{font-size:13px;color:#5f5e5a;line-height:1.55;font-style:italic;margin-bottom:.625rem;}
+  .quote-author{font-size:12px;color:#888780;}
+  .quote-author strong{color:#2c2c2a;font-style:normal;}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:560px;margin:0 auto 3rem;padding:0 2rem;}
+  .stat{background:#fff;border:1px solid #ede9e3;border-radius:12px;padding:1rem;text-align:center;}
+  .stat-num{font-size:24px;font-weight:700;color:#2c2c2a;}
+  .stat-label{font-size:12px;color:#5f5e5a;margin-top:2px;}
+
+  .final{background:#fbeaf0;border-radius:20px;padding:3rem 2rem;text-align:center;max-width:620px;margin:0 auto 4rem;}
+  .final h2{font-size:28px;font-weight:700;color:#4b1528;margin-bottom:.625rem;}
+  .final p{font-size:16px;color:#72243e;margin-bottom:1.5rem;line-height:1.6;}
+  .final-form{display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto;}
+  .final-form input{padding:13px 16px;border:1.5px solid #f4c0d1;border-radius:8px;font-size:15px;background:#fff;outline:none;width:100%;}
+  .final-form button{background:#4b1528;color:#fff;padding:13px;border-radius:8px;font-size:15px;font-weight:600;border:none;cursor:pointer;}
+  .final-form button:hover{background:#72243e;}
+  .final-note{font-size:12px;color:#993556;margin-top:.75rem;}
+
+  footer{text-align:center;padding:2rem;font-size:13px;color:#888780;}
+  footer a{color:#888780;text-decoration:none;}
+
+  @media(max-width:540px){
+    .nav{padding:1rem 1.25rem;}
+    .hero{padding:2.5rem 1.25rem 2rem;}
+    .features,.vs,.social,.stats{padding-left:1.25rem;padding-right:1.25rem;}
+    .final{margin-left:1.25rem;margin-right:1.25rem;padding:2rem 1.25rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">안녕 <span>Chingu</span></a>
+  <a href="#waitlist" class="nav-cta">Join waitlist</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Coming soon — join the waitlist</div>
+  <h1>Your Korean AI <em>friend</em><br>is waiting.</h1>
+  <p>Stop being scared to speak Korean. Practice real conversations through K-drama, K-pop and street food culture — with an AI 쌤 who never judges your mistakes.</p>
+
+  <div class="form-wrap" id="waitlist">
+    <span class="form-label">Get early access — free forever tier included</span>
+
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/e1688e7d-f504-48c8-9b0b-115113671ecb" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 314px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+
+    <p style="font-size:12px;color:#888780;text-align:center;margin-top:.75rem;">No spam. One email when we launch. Unsubscribe anytime.</p>
+  </div>
+
+  <div class="convo">
+    <div class="convo-label">Real conversation with your 쌤</div>
+    <div class="msg">
+      <div class="avatar av-ai">쌤</div>
+      <div class="bubble bubble-ai">
+        <span class="ko">오, 그 드라마 봤어요? 진짜 재밌지 않아요?</span>
+        <span class="en">Oh, did you watch that drama? Isn't it so good?</span>
+      </div>
+    </div>
+    <div class="msg user">
+      <div class="avatar av-you">나</div>
+      <div class="bubble bubble-you">네, 저는 그 드라마 좋아해요!</div>
+    </div>
+    <div class="msg">
+      <div class="avatar av-ai">쌤</div>
+      <div class="bubble bubble-ai">
+        <span class="ko">좋아요! 더 자연스럽게 말하면...</span>
+        <span class="en">Nice! A more natural way to say that is...</span>
+        <span class="correction">그 드라마 진짜 좋아요! ✓</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">40M+</div><div class="stat-label">Korean learners globally</div></div>
+  <div class="stat"><div class="stat-num">73%</div><div class="stat-label">Say fear stops them speaking</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Judgment from your 쌤. Ever.</div></div>
+</div>
+
+<section class="features">
+  <div class="feat-head">
+    <h2>Everything other apps are afraid to build</h2>
+    <p>Because they're trying to teach 84 languages at once. You're not a language learner. You're a K-culture fan.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="feat-icon" style="background:#fbeaf0;">🎙️</div>
+      <h3>Real voice conversations</h3>
+      <p>Speak out loud. Hear your 쌤 reply in natural Korean voice — not robotic TTS. The first time you hear it, you'll understand why we built this.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:#e1f5ee;">🎬</div>
+      <h3>K-culture scenarios</h3>
+      <p>K-drama confessions, street food ordering, K-pop fan meets, Seoul travel. Korean you'll actually use — not "the cat is on the table."</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:#e6f1fb;">✏️</div>
+      <h3>Gentle corrections</h3>
+      <p>Your 쌤 fixes mistakes the way a friend would — naturally, without making you feel embarrassed. You keep talking. You keep improving.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:#faeeda;">📊</div>
+      <h3>Adapts to your level</h3>
+      <p>5-minute placement conversation. Chingu knows exactly where you are — complete beginner to near-fluent — and grows with you.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:#fbeaf0;">🔥</div>
+      <h3>Streaks and XP</h3>
+      <p>Daily streaks build the habit. XP tracks your progress. Badges mark the milestones. Learning Korean should feel like a game.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:#e1f5ee;">🎁</div>
+      <h3>Actually free to start</h3>
+      <p>3 full conversations every day, free forever. No 10-minute limit. No credit card needed. Fall in love before you ever pay a cent.</p>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section class="vs">
+  <h2>Why not just use Duolingo?</h2>
+  <p class="sub">Every other app is either too generic, too stiff, or too scared to let you actually speak.</p>
+  <table class="vs-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th class="c">Duolingo</th>
+        <th class="c">Seyo</th>
+        <th class="c">Talkpal</th>
+        <th class="c">Annyeong Chingu</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Real voice conversation</td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-you">✓</span></td>
+      </tr>
+      <tr>
+        <td>K-culture scenarios</td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-you">✓</span></td>
+      </tr>
+      <tr>
+        <td>Natural Korean voice</td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-you">✓</span></td>
+      </tr>
+      <tr>
+        <td>Free to start (no paywall)</td>
+        <td class="c"><span class="tick t-yes">✓</span></td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-you">✓</span></td>
+      </tr>
+      <tr>
+        <td>Korean-only focus</td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-yes">✓</span></td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-you">✓</span></td>
+      </tr>
+      <tr>
+        <td>Gamification</td>
+        <td class="c"><span class="tick t-yes">✓</span></td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-no">✕</span></td>
+        <td class="c"><span class="tick t-you">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr>
+
+<section class="social">
+  <h2>What Korean learners are saying</h2>
+  <p class="sub">We asked Korean learners what they wish existed. This is what they told us.</p>
+  <div class="quote-grid">
+    <div class="quote">
+      <p>"I've been studying Korean for a year but can't hold a real conversation. I'd pay for an app that just let me talk without feeling stupid."</p>
+      <div class="quote-author"><strong>Sarah K.</strong> — K-drama fan, Sydney</div>
+    </div>
+    <div class="quote">
+      <p>"Duolingo teaches me vocab. Seyo makes me repeat sentences. Neither of them let me actually have a conversation. That's the gap."</p>
+      <div class="quote-author"><strong>Marcus L.</strong> — BTS fan, London</div>
+    </div>
+    <div class="quote">
+      <p>"I want to learn Korean the way I actually use it — through K-drama situations and fan culture, not textbook exercises."</p>
+      <div class="quote-author"><strong>Priya M.</strong> — K-pop fan, Melbourne</div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section style="max-width:780px;margin:0 auto;padding:0 2rem 3rem;">
+  <div class="final">
+    <h2>You've been studying Korean long enough.</h2>
+    <p>It's time to actually speak it. Your 쌤 is almost ready — join the waitlist and be first to know when we launch.</p>
+    <div class="final-form">
+
+      <!-- =====================================================
+           PASTE YOUR BEEHIIV EMBED CODE HERE TOO (optional
+           second form at the bottom of the page).
+           Or just link to the top form with a scroll anchor.
+           ===================================================== -->
+      <input type="email" placeholder="your@email.com">
+      <button onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'});return false;">
+        Join the waitlist — it's free
+      </button>
+
+    </div>
+    <p class="final-note">Joining learners already on the waitlist. No spam, ever.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Annyeong Chingu &nbsp;·&nbsp; Built with 사랑 in Australia &nbsp;·&nbsp; <a href="mailto:hello@getannyeong.com">hello@getannyeong.com</a></p>
+</footer>
+
+<script>
+document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var email = document.getElementById('email-input').value;
+  if (email) {
+    document.getElementById('form-msg').style.display = 'block';
+    document.getElementById('email-input').value = '';
+    document.getElementById('email-input').disabled = true;
+    document.querySelector('#waitlist-form button').disabled = true;
+    document.querySelector('#waitlist-form button').textContent = 'You\'re on the list!';
+  }
+});
+
+document.getElementById('email-input').addEventListener('focus', function() {
+  this.style.borderColor = '#d4537e';
+});
+document.getElementById('email-input').addEventListener('blur', function() {
+  this.style.borderColor = '#e0ddd6';
+});
+</script>
+<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+</body>
+</html>
