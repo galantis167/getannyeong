@@ -452,10 +452,18 @@ footer a{color:#888780;text-decoration:none;}
     <h2>Stop being stuck at basic Korean.</h2>
     <p>You've put in the study hours. You deserve to actually speak it. Join the waitlist, be first when we launch — and lock in founding member pricing before it's gone.</p>
     <div class="final-form">
-      <input type="email" placeholder="your@email.com">
-      <button onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'});return false;">
-        Join the waitlist — it's free
-      </button>
+      <!-- ================================================
+           PASTE YOUR BEEHIIV EMBED CODE HERE
+           Same script snippet as the top form.
+           Beehiiv handles duplicate embeds fine —
+           each submission goes to your subscriber list.
+           ================================================ -->
+      <div id="beehiiv-bottom">
+        <!-- Replace this entire div content with your
+             Beehiiv <script> embed snippet -->
+<script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/e1688e7d-f504-48c8-9b0b-115113671ecb" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 314px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+      </div>
+      <!-- END BEEHIIV BOTTOM EMBED -->
     </div>
     <p class="final-note">No spam. One email when we launch. Founding members get Pro at $59.99/yr — reply to your welcome email to claim.</p>
   </div>
@@ -468,8 +476,6 @@ footer a{color:#888780;text-decoration:none;}
   </p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 <script>
 document.getElementById('wl-form').addEventListener('submit',function(e){
   e.preventDefault();
@@ -483,3 +489,29 @@ document.getElementById('wl-form').addEventListener('submit',function(e){
     btn.disabled=true;
     btn.style.background='#1d9e75';
   }
+});
+document.getElementById('wl-email').addEventListener('focus',function(){this.style.borderColor='#d4537e';});
+document.getElementById('wl-email').addEventListener('blur',function(){this.style.borderColor='#e0ddd6';});
+
+var bottomForm=document.getElementById('bottom-form');
+if(bottomForm){
+  bottomForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var em=document.getElementById('bottom-email').value;
+    if(em){
+      document.getElementById('bottom-msg').style.display='block';
+      document.getElementById('bottom-email').value='';
+      document.getElementById('bottom-email').disabled=true;
+      var btn=bottomForm.querySelector('button[type="submit"]');
+      btn.textContent="You're on the list!";
+      btn.disabled=true;
+      btn.style.background='#1d9e75';
+    }
+  });
+  document.getElementById('bottom-email').addEventListener('focus',function(){this.style.borderColor='#d4537e';});
+  document.getElementById('bottom-email').addEventListener('blur',function(){this.style.borderColor='#f4c0d1';});
+}
+</script>
+<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+</body>
+</html>
